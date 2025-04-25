@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 REPO=Personal_Projects
-git init $REPO
+#git init $REPO
 cd $REPO
 touch README.md
 git add README.md
@@ -142,6 +142,6 @@ GIT_AUTHOR_DATE=2024-12-28T12:00:00 GIT_COMMITTER_DATE=2024-12-28T12:00:00 git c
 GIT_AUTHOR_DATE=2024-12-28T12:00:00 GIT_COMMITTER_DATE=2024-12-28T12:00:00 git commit --allow-empty -m "gitfiti" > /dev/null
 
 git branch -M main
-git remote add origin git@github.com:JRamosRuballos/$REPO.git
+#git remote add origin git@github.com:JRamosRuballos/$REPO.git
 git pull origin main
 git push -u origin main
