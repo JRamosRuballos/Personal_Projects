@@ -8,7 +8,13 @@ body {
   background-color: oklch(26.8% 0.007 34.298);
   color: oklch(98.5% 0.001 106.423);
   font-family: "Sono", sans-serif;
-  padding: 40px;
+  padding: 48px 64px;
+}
+
+/*MAIN LAYOUT*/
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
 .header {
@@ -18,17 +24,29 @@ body {
   justify-content: space-between;
 }
 
+.main {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 48px;
+}
+
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*ELEMENTS*/
+
 .logo {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-.fact-form {
-  background-color: oklch(37.4% 0.01 67.558);
-  margin-bottom: 40px;
-  padding: 16px 40px;
-  text-align: center;
+.logo img {
+  width: 68px;
+  height: 68px;
 }
 
 h1 {
@@ -37,6 +55,10 @@ h1 {
   font-family: "Coiny", sans-serif;
   line-height: 1;
   margin-top: 6px;
+}
+
+.category {
+  margin-bottom: 16px;
 }
 
 .fact {
@@ -49,6 +71,15 @@ h1 {
   display: flex;
   align-items: center;
   gap: 24px;
+  border-radius: 16px;
+}
+
+@media (max-width: 1200px) {
+  .fact {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+  }
 }
 
 .tag {
@@ -58,12 +89,133 @@ h1 {
   padding-top: 3px;
   padding-left: 10px;
   padding-right: 10px;
+  border-radius: 100px;
 }
 
 .vote-buttons {
   margin-left: auto;
+  flex-shrink: 0;
+  display: flex;
+  gap: 8px;
+}
+
+.vote-buttons button {
+  border: none;
+  background-color: oklch(55.3% 0.013 58.071);
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  color: inherit;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.vote-buttons button:hover {
+  background-color: oklch(26.8% 0.007 34.298);
 }
 
 ul {
   list-style: none;
+}
+
+.source:link,
+.source:visited {
+  color: oklch(70.9% 0.01 56.259);
+  text-decoration: none;
+  margin-left: 12px;
+  transition: 0.3s;
+}
+
+.source:hover,
+.source:active {
+  color: #3b82f6;
+}
+
+.btn {
+  border: none;
+  font-family: "Coiny", sans;
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: 17px;
+  padding: 16px 0 13px;
+  background-image: linear-gradient(135deg, #3b82f6, #ef4444, #16a34a, #eab308);
+  color: inherit;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(110%) rotate(-2deg);
+}
+
+.btn-large {
+  font-size: 20px;
+  padding: 20px 32px 17px;
+}
+
+.btn-all-categories {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.btn-category {
+  width: 100%;
+  background-image: none;
+}
+
+/*FORM*/
+
+.fact-form {
+  background-color: oklch(37.4% 0.01 67.558);
+  margin-bottom: 40px;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: 16px;
+}
+
+.fact-form input,
+.fact-form select {
+  max-width: 220px;
+  background-color: oklch(55.3% 0.013 58.071);
+  border: none;
+  border-radius: 100px;
+  padding: 16px;
+  font-size: 18px;
+  color: inherit;
+  font-family: inherit;
+}
+
+.fact-form input::placeholder {
+  color: oklch(70.9% 0.01 56.259);
+}
+
+.fact-form input:first-child {
+  flex-grow: 1;
+  max-width: none;
+}
+
+.fact-form span {
+  font-weight: 600;
+  font-size: 18px;
+  margin-right: 18px;
+}
+
+@media (max-width: 1000px) {
+  body {
+    padding: 32px 48px;
+  }
+  .fact-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .fact-form input,
+  .fact-form select {
+    max-width: none;
+    width: auto;
+  }
 }
