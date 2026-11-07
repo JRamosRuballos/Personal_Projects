@@ -96,7 +96,14 @@ async function github(
   ).toString();
   const suffix = query ? `?${query}` : "";
 
-  const headers: Record<string, string> = { Accept: "application/vnd.github+json" };
+  // GitHub rejects requests without a User-Agent (Workers don't send one by default).
+  const headers: Record<string, string> = {
+    Accept: "application/vnd.github+json",
+    "User-Agent": "jaimny-personal-website",
+  };
+  // Optional: raises the rate limit from 60/hr (shared per Cloudflare IP) to 5000/hr.
+  const token = typeof process !== "undefined" ? process.env?.GITHUB_TOKEN : undefined;
+  if (token) headers.Authorization = `Bearer ${token}`;
 
   const target = `${PUBLIC_API}${path}${suffix}`;
   try {
