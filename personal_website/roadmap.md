@@ -1,0 +1,3 @@
+- [x] Read the latest commit date for each repository and project folder.
+- [x] Show relative update dates and sort all GitHub cards newest first.
+- [x] Verify dates, sorting, images, and language filters.
